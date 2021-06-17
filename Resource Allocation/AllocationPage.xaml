@@ -1,0 +1,78 @@
+﻿<Page x:Class="Resource_Allocation.AllocationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Resource_Allocation"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AllocationPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+
+        <!-- Background -->
+        <Grid.Background>
+            <ImageBrush ImageSource=".\Resources\Dull.jpg"/>
+        </Grid.Background>
+        <Label Style="{StaticResource headerTextStyle}" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2" Height="50" FontSize="36" Width="185">
+            Allocation
+        </Label>
+
+        <ComboBox Name="client_list" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,12,0,0" Grid.Row="1" Width="285" Height="30"
+                  DisplayMemberPath="Name" SelectedValuePath="ID" SelectionChanged="client_list_SelectionChanged"/>
+
+        <DataGrid
+            Margin="10,47,0,10" Grid.Row="1" Grid.Column="0"
+            AutoGenerateColumns="False" Name="signedResourceGrid" FontSize="12" HorizontalAlignment="Center">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name"  Binding="{Binding Path = First}" Width="*"/>
+                <DataGridTextColumn Header="Last Name"  Binding="{Binding Path = Last}" Width="*"/>
+                <DataGridTemplateColumn Header="Action" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource buttonColStyle}" Width="50" Margin="1 0"  Click="Unsign_Click" HorizontalAlignment="Center">Unsign</Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid
+            VerticalAlignment="Center" Grid.Row="1"  Grid.Column="1" Height="320"
+            AutoGenerateColumns="False" Name="unsignedResourceGrid" FontSize="12" HorizontalAlignment="Center">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name"  Binding="{Binding Path = First}" Width="*"/>
+                <DataGridTextColumn Header="Last Name"  Binding="{Binding Path = Last}" Width="*"/>
+                <DataGridTemplateColumn Header="Action" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource buttonColStyle}" Width="40" Margin="1 0" Click="Sign_Click" HorizontalAlignment="Center">Sign</Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

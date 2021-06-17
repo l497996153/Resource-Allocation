@@ -1,0 +1,65 @@
+﻿<Page x:Class="Resource_Allocation.Client_Add"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Client_Add">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "1.5*" />
+            <ColumnDefinition Width = "2*" />
+            <ColumnDefinition Width = "1.5*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "*" />
+        </Grid.RowDefinitions>
+
+        <!-- Background -->
+        <Grid.Background>
+            <ImageBrush ImageSource=".\Resources\Dull.jpg"/>
+        </Grid.Background>
+
+        <Label Style="{StaticResource headerTextStyle}" Height="45" Width="160" Grid.Column = "1" VerticalAlignment="Center">
+            New Client
+        </Label>
+
+        <Label Name = "nameLabel" Grid.Row = "1" Margin = "2 30 0 0" HorizontalAlignment="Right">_Company Name:</Label>
+        <TextBox Name = "nameText" Grid.Row = "1" Grid.Column = "1" Margin = "2 30 0 0" 
+         Text = "{Binding CompanyName, Mode = TwoWay}"/>
+
+        <Label Name = "firstLabel" Margin = "2" Grid.Row = "2" HorizontalAlignment="Right">_Contact Firstname:</Label>
+        <TextBox Name = "firstText" Grid.Row = "2" Grid.Column = "1" Margin = "2" 
+         Text = "{Binding First, Mode = TwoWay}"/>
+
+        <Label Name = "lastLabel" Margin = "2" Grid.Row = "3" HorizontalAlignment="Right">_Contact Lastname:</Label>
+        <TextBox Name = "lastText" Grid.Row = "3" Grid.Column = "1" Margin = "2" 
+         Text = "{Binding Last, Mode = TwoWay}"/>
+
+        <Label Name = "cityLabel" Margin = "2" Grid.Row = "4" HorizontalAlignment="Right">_City:</Label>
+        <TextBox Name = "cityText" Grid.Row = "4" Grid.Column = "1" Margin = "2" 
+         Text = "{Binding City, Mode = TwoWay}"/>
+
+        <Label Name = "stateLabel" Margin = "2" Grid.Row = "5" HorizontalAlignment="Right">_State:</Label>
+        <TextBox Name = "stateText" Grid.Row = "5" Grid.Column = "1" Margin = "2" 
+         Text = "{Binding State, Mode = TwoWay}"/>
+
+        <Label Name = "zipLabel" Margin = "2" Grid.Row = "6" HorizontalAlignment="Right">_Zip:</Label>
+        <TextBox Name = "zipText" Grid.Row = "6" Grid.Column = "1" Margin = "2" 
+         Text = "{Binding Zip, Mode = TwoWay}"/>
+        
+
+        <StackPanel Grid.Row = "7" Grid.Column = "1" Margin="15 20">
+            <Button Content = "Save" Click="Save_Click" Width="175" Height="30" Style="{StaticResource buttonStyle}"/>
+        </StackPanel>
+    </Grid>
+</Page>

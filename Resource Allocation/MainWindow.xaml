@@ -1,0 +1,38 @@
+﻿<Window x:Class="Resource_Allocation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Resource_Allocation"
+        mc:Ignorable="d"
+        Title="Resource Allocation" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+
+        <!-- Background -->
+        <Grid.Background>
+            <ImageBrush ImageSource=".\Resources\Dull.jpg"/>
+        </Grid.Background>
+        <Label Style="{StaticResource headerTextStyle}" Grid.Row="0" Height="50" Margin="222,0" FontSize="36">
+            Resource Allocation
+        </Label>
+
+        <Button Grid.Row="1"  Click="Client_Click" MaxWidth="150" MaxHeight="40"  Style="{StaticResource buttonStyle}">Clients</Button>
+
+        <Button Grid.Row="3" Click="Resource_Click" MaxWidth="150" Style="{StaticResource buttonStyle}">Rsources</Button>
+
+        <Button Grid.Row="5" Click="Allocation_Click" MaxWidth="150" Style="{StaticResource buttonStyle}">Allocation</Button>
+    </Grid>
+</Window>
