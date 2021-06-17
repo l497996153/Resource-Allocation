@@ -1,0 +1,8 @@
+A*B*C*15
+C*D*F*9
+B*C*D*1
+D*E*F*10
+E*F*G*5
+F*G*H*4
+G*H*I*9
+H*I*J*1
