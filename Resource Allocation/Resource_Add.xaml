@@ -1,0 +1,56 @@
+﻿<Page x:Class="Resource_Allocation.Resource_Add"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Resource_Allocation"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Resource_Add">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "1.5*" />
+            <ColumnDefinition Width = "2*" />
+            <ColumnDefinition Width = "1.5*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "Auto" />
+            <RowDefinition Height = "*" />
+        </Grid.RowDefinitions>
+
+        <!-- Background -->
+        <Grid.Background>
+            <ImageBrush ImageSource=".\Resources\Dull.jpg"/>
+        </Grid.Background>
+
+        <Label Style="{StaticResource headerTextStyle}" Height="45" Width="160" Grid.Column = "1" VerticalAlignment="Center">
+            New Client
+        </Label>
+
+        <Label Name = "firstLabel" Grid.Row = "1" Margin = "2 30 0 0" HorizontalAlignment="Right">_First Name:</Label>
+        <TextBox Name = "firstText" Grid.Row = "1" Grid.Column = "1" Margin = "2 30 0 0" 
+         Text = "{Binding First, Mode = TwoWay}"/>
+
+        <Label Name = "lastLabel" Margin = "2" Grid.Row = "2" HorizontalAlignment="Right">_Last Firstname:</Label>
+        <TextBox Name = "lastText" Grid.Row = "2" Grid.Column = "1" Margin = "2" 
+         Text = "{Binding Last, Mode = TwoWay}"/>
+
+        <Label Name = "positionLabel" Margin = "2" Grid.Row = "3" HorizontalAlignment="Right">_Position:</Label>
+        <TextBox Name = "positionText" Grid.Row = "3" Grid.Column = "1" Margin = "2" 
+         Text = "{Binding Position, Mode = TwoWay}"/>
+
+        <Label Name = "yoeLabel" Margin = "2" Grid.Row = "4" HorizontalAlignment="Right">_Year Of Experience:</Label>
+        <TextBox Name = "yoeText" Grid.Row = "4" Grid.Column = "1" Margin = "2" 
+         Text = "{Binding YearOfExperience, Mode = TwoWay}"/>
+
+
+        <StackPanel Grid.Row = "5" Grid.Column = "1" Margin="15 20">
+            <Button Content = "Save" Click="Save_Click" Width="175" Height="30" Style="{StaticResource buttonStyle}"/>
+        </StackPanel>
+    </Grid>
+</Page>
